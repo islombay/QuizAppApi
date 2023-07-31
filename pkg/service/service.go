@@ -18,6 +18,8 @@ type Subject interface {
 	DeleteSubject(f int) error
 
 	GetSubject(sId int) (QuizAppApi.SubjectSingleResponse, error)
+
+	UpdateSubject(su QuizAppApi.SubjectResponse) error
 }
 
 type Service struct {

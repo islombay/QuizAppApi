@@ -104,3 +104,9 @@ func (s *SubjectService) GetSubject(sId int) (QuizAppApi.SubjectSingleResponse, 
 		nil,
 	}, nil
 }
+
+func (s *SubjectService) UpdateSubject(su QuizAppApi.SubjectResponse) error {
+	var f QuizAppApi.SubjectModel
+	reflectCommonFields(&su, &f)
+	return s.repo.UpdateSubject(f)
+}

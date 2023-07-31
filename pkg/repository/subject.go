@@ -72,3 +72,20 @@ func (r *SubjectPostgres) DeleteSubject(f int) error {
 
 	return nil
 }
+
+func (r *SubjectPostgres) UpdateSubject(su QuizAppApi.SubjectModel) error {
+	var s QuizAppApi.SubjectModel
+	if res := r.db.First(&s, su.ID); res.Error != nil {
+		return res.Error
+	}
+
+	s.Name = su.Name
+	s.ColorString = su.ColorString
+	s.IconPath = su.IconPath
+
+	if res := r.db.Save(&s); res.Error != nil {
+		return res.Error
+	}
+
+	return nil
+}

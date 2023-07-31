@@ -85,3 +85,20 @@ func (h *Handler) deleteSubject(c *gin.Context) {
 
 	c.JSON(http.StatusOK, true)
 }
+
+func (h *Handler) updateSubject(c *gin.Context) {
+	var updatingSubject QuizAppApi.SubjectResponse
+	if err := c.BindJSON(&updatingSubject); err != nil {
+		NewErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	if err := h.services.UpdateSubject(updatingSubject); err != nil {
+		NewErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, basicResponse{
+		strconv.FormatBool(true),
+	})
+}

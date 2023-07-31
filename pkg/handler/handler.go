@@ -31,6 +31,8 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			admin.POST("/subject", h.createNewSubject)
 			admin.DELETE("/subject", h.deleteSubject)
+
+			admin.PUT("/subject", h.updateSubject)
 		}
 	}
 

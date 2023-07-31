@@ -11,6 +11,8 @@ type Subject interface {
 	DeleteSubject(f int) error
 
 	GetSubject(sId int) (QuizAppApi.SubjectModel, error)
+
+	UpdateSubject(su QuizAppApi.SubjectModel) error
 }
 
 type Authorization interface{}
