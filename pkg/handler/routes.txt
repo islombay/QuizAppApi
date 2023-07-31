@@ -1,0 +1,9 @@
+[CLIENT - API]
+
+GET /api/subjects                 --- list of all subjects without questions
+GET /api/subjects/:id             --- specific subject with questions
+GET /api/subjects/:id/questions   --- list of all questions
+GET /api/subjects/:id/answer      --- answers for questions
+
+[ADMIN]
+POST /api/admin/subject              --- add new subject
