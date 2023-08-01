@@ -3,6 +3,7 @@
 This is a simple **REST API** designed for
 quiz application made during the lectures in the [PDP University](https://university.pdp.uz).
 
+#### **BY** [Islmobay](https://t.me/+pXNYOnXyHTEwZTUy)
 
 ## API Documentation
  
