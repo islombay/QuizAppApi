@@ -22,9 +22,6 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			subjects.GET("/", h.getAllSubjects)    // return a list of all subjects
 			subjects.GET("/:id", h.getSubjectById) // return specific subject with questions
-
-			subjects.GET("/:id/questions") // get all questions for the subject
-			subjects.GET("/:id/answer")    // get the correct answers for the subject questions.
 		}
 
 		admin := api.Group("/admin")

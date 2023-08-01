@@ -60,5 +60,6 @@ type createNewSubjectQuestionsBody struct {
 type CreateNewSubjectBody struct {
 	Name        string                          `json:"name" binding:"required"`
 	ColorString string                          `json:"color" binding:"required"`
+	IconPath    string                          `json:"iconPath"`
 	Questions   []createNewSubjectQuestionsBody `json:"questions" binding:"required"`
 }

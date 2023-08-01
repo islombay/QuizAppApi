@@ -2,6 +2,7 @@ package handler
 
 import (
 	"QuizAppApi"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -61,7 +62,9 @@ func (h *Handler) createNewSubject(c *gin.Context) {
 		log.Fatalln("could not create a subject in db")
 	}
 
-	c.JSON(http.StatusOK, subjectId)
+	c.JSON(http.StatusOK, basicResponse{
+		fmt.Sprintf("%d", subjectId),
+	})
 }
 
 type deleteSubjectBody struct {
@@ -83,7 +86,9 @@ func (h *Handler) deleteSubject(c *gin.Context) {
 		log.Fatalln("could not delete object in db")
 	}
 
-	c.JSON(http.StatusOK, true)
+	c.JSON(http.StatusOK, basicResponse{
+		strconv.FormatBool(true),
+	})
 }
 
 func (h *Handler) updateSubject(c *gin.Context) {
