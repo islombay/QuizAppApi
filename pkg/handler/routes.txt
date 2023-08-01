@@ -1,9 +1,15 @@
 [CLIENT - API]
 
-GET /api/subjects                 --- list of all subjects without questions
-GET /api/subjects/:id             --- specific subject with questions
-GET /api/subjects/:id/questions   --- list of all questions
-GET /api/subjects/:id/answer      --- answers for questions
+GET     /api/subjects                       --- list of all subjects without questions
+GET     /api/subjects/:id                   --- specific subject with questions
+GET     /api/subjects/:id/questions         --- list of all questions
+GET     /api/subjects/:id/answer            --- answers for questions
 
 [ADMIN]
-POST /api/admin/subject              --- add new subject
+POST    /api/admin/subject                  --- add new subject
+PUT     /api/admin/subject                  --- update the existing subject
+DELETE  /api/admin/subject                  --- delete the existing subject
+
+PUT     /api/admin/question                 --- update the existing question of the subject
+DELETE  /api/admin/question                 --- delete the existing question of the subject
+POST    /api/admin/question                 --- add question to the subject

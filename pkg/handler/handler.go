@@ -26,10 +26,19 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 		admin := api.Group("/admin")
 		{
-			admin.POST("/subject", h.createNewSubject)
-			admin.DELETE("/subject", h.deleteSubject)
+			subject := admin.Group("/subject")
+			{
+				subject.POST("/", h.createNewSubject)
+				subject.DELETE("/", h.deleteSubject)
+				subject.PUT("/", h.updateSubject)
+			}
 
-			admin.PUT("/subject", h.updateSubject)
+			questionGroup := admin.Group("/question")
+			{
+				questionGroup.PUT("/", h.updateQuestion)
+				questionGroup.DELETE("/", h.deleteQuestion)
+				questionGroup.POST("/", h.addQuestion)
+			}
 		}
 	}
 

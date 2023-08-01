@@ -63,3 +63,14 @@ type CreateNewSubjectBody struct {
 	IconPath    string                          `json:"iconPath"`
 	Questions   []createNewSubjectQuestionsBody `json:"questions" binding:"required"`
 }
+
+type CreateQuestionBody struct {
+	SubjectId     uint   `json:"sid" binding:"true"`
+	Text          string `json:"text" binding:"true"`
+	Answer1       string `json:"a1" binding:"true"`
+	Answer2       string `json:"a2" binding:"true"`
+	Answer3       string `json:"a3" binding:"true"`
+	Answer4       string `json:"a4" binding:"true"`
+	CorrectAnswer string `json:"ca" binding:"true"`
+	Level         int    `json:"level" binding:"true"`
+}

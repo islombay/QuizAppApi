@@ -9,6 +9,11 @@ type Authorization interface{}
 
 type Question interface {
 	GetQuestions(sId int) ([]QuizAppApi.QuestionResponse, error)
+
+	UpdateQuestion(qs QuizAppApi.QuestionResponse) error
+	DeleteQuestion(sID, qID int) error
+
+	AddQuestion(su QuizAppApi.CreateQuestionBody) (uint, error)
 }
 
 type Subject interface {

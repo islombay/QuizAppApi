@@ -2,7 +2,6 @@ package handler
 
 import (
 	"QuizAppApi"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -63,7 +62,7 @@ func (h *Handler) createNewSubject(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, basicResponse{
-		fmt.Sprintf("%d", subjectId),
+		subjectId,
 	})
 }
 
@@ -78,8 +77,6 @@ func (h *Handler) deleteSubject(c *gin.Context) {
 		return
 	}
 
-	log.Println(deleteSub)
-
 	err := h.services.DeleteSubject(deleteSub.Id)
 	if err != nil {
 		NewErrorResponse(c, http.StatusInternalServerError, err.Error())
@@ -87,7 +84,7 @@ func (h *Handler) deleteSubject(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, basicResponse{
-		strconv.FormatBool(true),
+		true,
 	})
 }
 
@@ -104,6 +101,6 @@ func (h *Handler) updateSubject(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, basicResponse{
-		strconv.FormatBool(true),
+		true,
 	})
 }

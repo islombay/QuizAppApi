@@ -19,6 +19,10 @@ type Authorization interface{}
 
 type Question interface {
 	GetQuestions(sId int) ([]QuizAppApi.QuestionModel, error)
+	UpdateQuestion(qs QuizAppApi.QuestionModel) error
+	DeleteQuestion(sID, qID int) error
+
+	AddQuestion(qs QuizAppApi.QuestionModel) (uint, error)
 }
 
 type Repository struct {

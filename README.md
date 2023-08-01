@@ -8,6 +8,7 @@ quiz application made during the lectures in the [PDP University](https://univer
 ## API Documentation
  
 
+## Subject API
 ### Get all subjects
 
 Get a list of all subjects available
@@ -125,7 +126,7 @@ Update the existing subject to the new one
 
 ```json
 {
-  "message": "true"
+  "message": true
 }
 ```
 
@@ -146,6 +147,85 @@ Delete the subject by ID
 
 ```json
 {
-  "message": "true"
+  "message": true
+}
+```
+
+## Questions API
+
+### Add question
+Add new question to the subject
+
+- **URL**: `/api/admin/question`
+- **Method**: `POST`
+- **Request body**:
+
+```json
+{
+  "sid": "Subject ID",
+  "text": "text of the question",
+  "a1": "answer 1",
+  "a2": "answer 2",
+  "a3": "answer 3",
+  "a4": "answer 4",
+  "ca": "correct answer",
+  "level": "level of difficulty"
+}
+```
+
+- **Response on success**:
+```json
+{
+  "message": true
+}
+```
+
+### Update question
+
+Update existing question by ID
+- **URL**: `/api/admin/question`
+- **Method**: `PUT`
+- **Request body**:
+
+```json
+{
+  "sid": "Subject ID",
+  "qid": "Question id",
+  "text": "text of the question",
+  "a1": "answer 1",
+  "a2": "answer 2",
+  "a3": "answer 3",
+  "a4": "answer 4",
+  "ca": "correct answer",
+  "level": "level of difficulty"
+}
+```
+
+- **Response on success**:
+```json
+{
+  "message": true
+}
+```
+
+
+### Delete question
+
+Delete existing question by ID
+- **URL**: `/api/admin/question`
+- **Method**: `DELETE`
+- **Request body**:
+
+```json
+{
+  "sid": "Subject ID",
+  "qid": "Question id"
+}
+```
+
+- **Response on success**:
+```json
+{
+  "message": true
 }
 ```

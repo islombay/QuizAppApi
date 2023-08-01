@@ -28,6 +28,12 @@ func (s *QuestionService) GetQuestions(sId int) ([]QuizAppApi.QuestionResponse, 
 	return newQuestions, nil
 }
 
+func (s *QuestionService) UpdateQuestion(qs QuizAppApi.QuestionResponse) error {
+	var f QuizAppApi.QuestionModel
+	reflectCommonFields(&qs, &f)
+	return s.repo.UpdateQuestion(f)
+}
+
 func prepareQuestionResponse(source QuizAppApi.QuestionModel) QuizAppApi.QuestionResponse {
 	var destination QuizAppApi.QuestionResponse
 
@@ -44,4 +50,14 @@ func prepareQuestionResponse(source QuizAppApi.QuestionModel) QuizAppApi.Questio
 	}
 
 	return destination
+}
+
+func (s *QuestionService) DeleteQuestion(sID, qID int) error {
+	return s.repo.DeleteQuestion(sID, qID)
+}
+
+func (s *QuestionService) AddQuestion(su QuizAppApi.CreateQuestionBody) (uint, error) {
+	var f QuizAppApi.QuestionModel
+	reflectCommonFields(&su, &f)
+	return s.repo.AddQuestion(f)
 }

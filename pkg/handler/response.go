@@ -10,7 +10,7 @@ type errorResponse struct {
 }
 
 type basicResponse struct {
-	Message string `json:"message"`
+	Message interface{} `json:"message"`
 }
 
 func NewErrorResponse(c *gin.Context, statusCode int, message string) {
