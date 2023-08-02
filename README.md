@@ -242,6 +242,3 @@ Delete existing question by ID
   "message": true
 }
 ```
-
-<span style="background-color:green;padding:5px 10px; border: 5px;">GET</span>
-<span style="color:green; font-weight:600">GET</span>
