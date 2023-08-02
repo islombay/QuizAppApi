@@ -9,6 +9,13 @@ quiz application made during the lectures in the [PDP University](https://univer
  
 
 ## Subject API
+
+### End Points
+- <span style="color:green; font-weight:600">GET</span> &emsp;&emsp;&emsp; `/api/subjects`
+- <span style="color:green; font-weight:600">GET</span> &emsp;&emsp;&emsp; `/api/subjects/{id}`
+- <span style="color:darkgoldenrod; font-weight:600">POST</span> &nbsp;&emsp;&emsp; `/api/admin/subject`
+- <span style="color:cadetblue; font-weight:600">PUT</span> &emsp;&emsp;&emsp; `/api/admin/subject`
+- <span style="color:brown; font-weight:600">DELETE</span> &emsp;&nbsp;`/api/admin/subject`
 ### Get all subjects
 
 Get a list of all subjects available
@@ -153,6 +160,12 @@ Delete the subject by ID
 
 ## Questions API
 
+### End Points
+
+- <span style="color:darkgoldenrod; font-weight:600">POST</span> &nbsp;&emsp;&emsp; `/api/admin/question`
+- <span style="color:cadetblue; font-weight:600">PUT</span> &emsp;&emsp;&emsp; `/api/admin/question`
+- <span style="color:brown; font-weight:600">DELETE</span> &emsp;&nbsp;`/api/admin/question`
+
 ### Add question
 Add new question to the subject
 
@@ -229,3 +242,6 @@ Delete existing question by ID
   "message": true
 }
 ```
+
+<span style="background-color:green;padding:5px 10px; border: 5px;">GET</span>
+<span style="color:green; font-weight:600">GET</span>
