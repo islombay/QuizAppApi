@@ -3,6 +3,7 @@ package service
 import (
 	"QuizAppApi/pkg/repository"
 	"crypto/sha1"
+	"errors"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"time"
@@ -41,6 +42,20 @@ func (s *AuthService) GenerateAdminToken(user, password string) (string, error) 
 		"admin",
 	})
 	return token.SignedString([]byte(signingKey))
+}
+
+func (s *AuthService) AdminTokenValid(adminToken string) error {
+	_, err := jwt.Parse(adminToken, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, errors.New("Unexpected signing method")
+		}
+
+		return []byte(signingKey), nil
+	})
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func generatePasswordHash(password string) string {

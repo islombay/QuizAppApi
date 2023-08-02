@@ -18,14 +18,17 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	api := router.Group("/api")
 	{
+		api.POST("/sign-in", h.signIn)
+
 		subjects := api.Group("/subjects")
 		{
 			subjects.GET("/", h.getAllSubjects)    // return a list of all subjects
 			subjects.GET("/:id", h.getSubjectById) // return specific subject with questions
 		}
+
 		admin := api.Group("/admin")
+		admin.Use(h.JWTAuthAdminMiddleware())
 		{
-			admin.POST("/sign-in", h.signIn)
 			subject := admin.Group("/subject")
 			{
 				subject.POST("/", h.createNewSubject)
