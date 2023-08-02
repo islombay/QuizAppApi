@@ -32,6 +32,12 @@ type QuestionModel struct {
 	Level         int
 }
 
+type AdminModel struct {
+	ID       uint `gorm:"primarykey"`
+	User     string
+	Password string
+}
+
 type QuestionResponse struct {
 	SubjectId     uint   `json:"sid"`
 	QuestionId    uint   `json:"qid"`
@@ -65,12 +71,12 @@ type CreateNewSubjectBody struct {
 }
 
 type CreateQuestionBody struct {
-	SubjectId     uint   `json:"sid" binding:"true"`
-	Text          string `json:"text" binding:"true"`
-	Answer1       string `json:"a1" binding:"true"`
-	Answer2       string `json:"a2" binding:"true"`
-	Answer3       string `json:"a3" binding:"true"`
-	Answer4       string `json:"a4" binding:"true"`
-	CorrectAnswer string `json:"ca" binding:"true"`
-	Level         int    `json:"level" binding:"true"`
+	SubjectId     uint   `json:"sid" binding:"required"`
+	Text          string `json:"text" binding:"required"`
+	Answer1       string `json:"a1" binding:"required"`
+	Answer2       string `json:"a2" binding:"required"`
+	Answer3       string `json:"a3" binding:"required"`
+	Answer4       string `json:"a4" binding:"required"`
+	CorrectAnswer string `json:"ca" binding:"required"`
+	Level         int    `json:"level" binding:"required"`
 }

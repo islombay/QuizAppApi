@@ -15,7 +15,9 @@ type Subject interface {
 	UpdateSubject(su QuizAppApi.SubjectModel) error
 }
 
-type Authorization interface{}
+type Authorization interface {
+	GetAdmin(user, password string) (QuizAppApi.AdminModel, error)
+}
 
 type Question interface {
 	GetQuestions(sId int) ([]QuizAppApi.QuestionModel, error)
@@ -33,7 +35,8 @@ type Repository struct {
 
 func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{
-		Subject:  NewSubjectPostgres(db),
-		Question: NewQuestionPostgres(db),
+		Subject:       NewSubjectPostgres(db),
+		Question:      NewQuestionPostgres(db),
+		Authorization: NewAuthPostgres(db),
 	}
 }

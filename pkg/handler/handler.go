@@ -23,9 +23,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 			subjects.GET("/", h.getAllSubjects)    // return a list of all subjects
 			subjects.GET("/:id", h.getSubjectById) // return specific subject with questions
 		}
-
 		admin := api.Group("/admin")
 		{
+			admin.POST("/sign-in", h.signIn)
 			subject := admin.Group("/subject")
 			{
 				subject.POST("/", h.createNewSubject)

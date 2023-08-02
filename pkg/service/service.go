@@ -5,7 +5,9 @@ import (
 	"QuizAppApi/pkg/repository"
 )
 
-type Authorization interface{}
+type Authorization interface {
+	GenerateAdminToken(user, password string) (string, error)
+}
 
 type Question interface {
 	GetQuestions(sId int) ([]QuizAppApi.QuestionResponse, error)
@@ -35,7 +37,8 @@ type Service struct {
 
 func NewService(repository *repository.Repository) *Service {
 	return &Service{
-		Subject:  NewSubjectService(repository.Subject),
-		Question: NewQuestionService(repository.Question),
+		Subject:       NewSubjectService(repository.Subject),
+		Question:      NewQuestionService(repository.Question),
+		Authorization: NewAuthService(repository.Authorization),
 	}
 }

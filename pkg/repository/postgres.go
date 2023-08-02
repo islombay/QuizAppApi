@@ -34,7 +34,7 @@ func NewPostgresDB(cfg DBConfig) (*gorm.DB, error) {
 		return nil, err
 	}
 
-	err = db.AutoMigrate(&QuizAppApi.SubjectModel{}, &QuizAppApi.QuestionModel{})
+	err = db.AutoMigrate(&QuizAppApi.SubjectModel{}, &QuizAppApi.QuestionModel{}, &QuizAppApi.AdminModel{})
 	if err != nil {
 		return nil, err
 	}
