@@ -8,7 +8,6 @@ import (
 
 const (
 	authorizationHeader = "Authorization"
-	adminCtx            = "adminRole"
 )
 
 func (h *Handler) JWTAuthAdminMiddleware() gin.HandlerFunc {
