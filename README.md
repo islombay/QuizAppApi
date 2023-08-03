@@ -8,31 +8,6 @@ quiz application made during the lectures in the [PDP University](https://univer
 ## API Documentation
  
 
-## Authorization
-
-### End Points
-
-- <span style="color:darkgoldenrod; font-weight:600">POST</span> &nbsp;&emsp;&emsp; `/api/login`
-
-### Login
-Login as an admin
-
-- **URL**: `/api/login`
-- **Method**: `POST`
-- **Request body**:
-```json
-{
-  "user": "user role",
-  "password": "user password"
-}
-```
-- **Response on success**:
-```json
-{
-  "message": "JWT Token"
-}
-```
-
 ## Subject API
 
 ### End Points
@@ -111,8 +86,6 @@ Add subject to the database
 
 - **URL**: `/api/admin/subject`
 - **Method**: `POST`
-- **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
 - **Request body**:
 
 ```json
@@ -146,8 +119,6 @@ Update the existing subject to the new one
 
 - **URL**: `/api/admin/subject`
 - **Method**: `PUT`
-- **Headers**:
-- **Authorization**: `Bearer {JWT Token}`
 - **Request body**:
 
 ```json
@@ -172,8 +143,6 @@ Delete the subject by ID
 
 - **URL**: `/api/admin/subject`
 - **Method**: `DELETE`
-- **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
 - **Request body**:
 
 ```json
@@ -202,8 +171,6 @@ Add new question to the subject
 
 - **URL**: `/api/admin/question`
 - **Method**: `POST`
-- **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
 - **Request body**:
 
 ```json
@@ -231,8 +198,6 @@ Add new question to the subject
 Update existing question by ID
 - **URL**: `/api/admin/question`
 - **Method**: `PUT`
-- **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
 - **Request body**:
 
 ```json
@@ -262,8 +227,6 @@ Update existing question by ID
 Delete existing question by ID
 - **URL**: `/api/admin/question`
 - **Method**: `DELETE`
-- **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
 - **Request body**:
 
 ```json
@@ -279,3 +242,6 @@ Delete existing question by ID
   "message": true
 }
 ```
+
+<span style="background-color:green;padding:5px 10px; border: 5px;">GET</span>
+<span style="color:green; font-weight:600">GET</span>
