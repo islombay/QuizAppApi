@@ -6,7 +6,27 @@ quiz application made during the lectures in the [PDP University](https://univer
 #### **BY** [Islmobay](https://t.me/+pXNYOnXyHTEwZTUy)
 
 ## API Documentation
- 
+
+## Authorization
+
+### Login
+Login as an admin
+
+- **URL**: `/api/login`
+- **Method**: `POST`
+- **Request body**:
+```json
+{
+  "user": "user role",
+  "password": "user password"
+}
+```
+- **Response on success**:
+```json
+{
+  "message": "JWT Token"
+}
+```
 
 ## Subject API
 
