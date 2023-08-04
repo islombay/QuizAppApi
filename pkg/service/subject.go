@@ -3,6 +3,7 @@ package service
 import (
 	"QuizAppApi"
 	"QuizAppApi/pkg/repository"
+	"fmt"
 	"reflect"
 )
 
@@ -96,6 +97,7 @@ func (s *SubjectService) DeleteSubject(f int) error {
 func (s *SubjectService) GetSubject(sId int) (QuizAppApi.SubjectSingleResponse, error) {
 	subject, err := s.repo.GetSubject(sId)
 	if err != nil {
+		fmt.Println(err.Error())
 		return QuizAppApi.SubjectSingleResponse{}, err
 	}
 

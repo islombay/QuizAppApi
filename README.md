@@ -36,8 +36,8 @@ Get a list of all subjects available
 
 - **URL**: `/api/subjects`
 - **Method**: `GET`
-- **Response**:
 
+- **Response**:
 ```json
 [
   {
