@@ -13,7 +13,7 @@ type signInBody struct {
 func (h *Handler) signIn(c *gin.Context) {
 	var credentials signInBody
 	if err := c.BindJSON(&credentials); err != nil {
-		NewErrorResponse(c, http.StatusBadRequest, err.Error())
+		NewErrorResponse(c, http.StatusBadRequest, err.Error(), "auth binding")
 		return
 	}
 

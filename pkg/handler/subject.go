@@ -33,7 +33,7 @@ func (h *Handler) getSubjectById(c *gin.Context) {
 
 	subject, err := h.services.Subject.GetSubject(id)
 	if err != nil {
-		log.Fatalf("[DB] could not get single subject: %s", err.Error())
+		NewErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
 	questions, err := h.services.Question.GetQuestions(id)
