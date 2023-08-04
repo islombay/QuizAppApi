@@ -18,7 +18,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	api := router.Group("/api")
 	{
-		api.POST("/sign-in", h.signIn)
+		api.POST("/login", h.signIn)
 
 		subjects := api.Group("/subjects")
 		{
