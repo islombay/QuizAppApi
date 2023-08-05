@@ -21,3 +21,15 @@ func (r *AuthPostgres) GetAdmin(user, password string) (QuizAppApi.AdminModel, e
 
 	return admin, nil
 }
+
+func (r *AuthPostgres) AddAdmin(user, password string) error {
+	newAdmin := QuizAppApi.AdminModel{
+		User:     user,
+		Password: password,
+	}
+	res := r.db.Create(&newAdmin)
+	if res.Error != nil {
+		return res.Error
+	}
+	return nil
+}
