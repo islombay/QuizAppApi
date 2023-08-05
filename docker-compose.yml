@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  quiz-app-api:
+    build: ./
+    command: ./quiz-app-api
+    ports:
+      - 9856:9874
+    depends_on:
+      - db
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+
+  db:
+    restart: always
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 5436:5432
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data

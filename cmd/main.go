@@ -5,10 +5,13 @@ import (
 	"QuizAppApi/pkg/handler"
 	"QuizAppApi/pkg/repository"
 	"QuizAppApi/pkg/service"
+	"context"
 	"github.com/joho/godotenv"
 	"github.com/spf13/viper"
 	"log"
 	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
@@ -37,8 +40,27 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	srv := new(QuizAppApi.Server)
-	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
-		log.Fatalf("failed to start server : %s", err.Error())
+	go func() {
+		if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
+			log.Fatalf("failed to start server : %s", err.Error())
+		}
+	}()
+
+	log.Println("QuizAppApi Started")
+
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
+	<-quit
+
+	log.Println("QuizAppApi Stopped")
+
+	if err := srv.Shutdown(context.Background()); err != nil {
+		log.Fatalf("error occured on server shutting down: %s", err.Error())
+	}
+
+	sqlDB, _ := db.DB()
+	if err := sqlDB.Close(); err != nil {
+		log.Fatalf("error occured on database connection stopping: %s", err.Error())
 	}
 }
 

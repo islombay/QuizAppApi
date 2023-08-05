@@ -37,6 +37,7 @@ type Service struct {
 }
 
 func NewService(repository *repository.Repository) *Service {
+
 	return &Service{
 		Subject:       NewSubjectService(repository.Subject),
 		Question:      NewQuestionService(repository.Question),

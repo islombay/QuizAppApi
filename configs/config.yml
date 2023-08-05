@@ -1,6 +1,6 @@
 port: "9874"
 db:
-  host: "localhost"
+  host: "db"
   port: "5432"
-  dbname: "quizappApi"
+  dbname: "quizappapi"
   sslmode: "disable"

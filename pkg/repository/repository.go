@@ -17,6 +17,7 @@ type Subject interface {
 
 type Authorization interface {
 	GetAdmin(user, password string) (QuizAppApi.AdminModel, error)
+	AddAdmin(user, password string) error
 }
 
 type Question interface {

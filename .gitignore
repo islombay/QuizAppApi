@@ -1,3 +1,4 @@
 .env
 .idea
 /pkg/handler/routes.txt
+.database
