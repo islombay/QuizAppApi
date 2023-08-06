@@ -36,6 +36,11 @@ func main() {
 	services := service.NewService(repo)
 	handlers := handler.NewHandler(services)
 
+	err = services.Authorization.AdminInit("admin", os.Getenv("ADMIN_KEY"))
+	if err != nil {
+		log.Printf("failed to init admin : %s", err.Error())
+	}
+
 	srv := new(QuizAppApi.Server)
 	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
 		log.Fatalf("failed to start server : %s", err.Error())
