@@ -11,6 +11,7 @@ services:
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_USER=${DB_USER}
+      - ADMIN_KEY=${ADMIN_KEY}
 
   db:
     restart: always

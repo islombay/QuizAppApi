@@ -6,7 +6,6 @@ import (
 	"QuizAppApi/pkg/repository"
 	"QuizAppApi/pkg/service"
 	"context"
-	"github.com/joho/godotenv"
 	"github.com/spf13/viper"
 	"log"
 	"os"
@@ -19,9 +18,9 @@ func main() {
 		log.Fatalf("Error initialiation of configs: %s", err.Error())
 	}
 
-	if err := godotenv.Load(); err != nil {
-		log.Fatalf("error loading env variables: %s", err.Error())
-	}
+	//if err := godotenv.Load(); err != nil {
+	//	log.Fatalf("error loading env variables: %s", err.Error())
+	//}
 
 	db, err := repository.NewPostgresDB(repository.DBConfig{
 		Host:     viper.GetString("db.host"),
