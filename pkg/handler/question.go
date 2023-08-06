@@ -2,6 +2,7 @@ package handler
 
 import (
 	"QuizAppApi"
+	"QuizAppApi/pkg/service"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -53,7 +54,15 @@ func (h *Handler) addQuestion(c *gin.Context) {
 		return
 	}
 
-	_, err := h.services.Question.AddQuestion(newQ)
+	_, err := h.services.Subject.GetSubject(int(newQ.SubjectId))
+
+	if err != nil {
+		if err.Error() == service.RecordNotFound {
+			NewErrorResponse(c, http.StatusBadRequest, err.Error())
+			return
+		}
+	}
+	_, err = h.services.Question.AddQuestion(newQ)
 	if err != nil {
 		NewErrorResponse(c, http.StatusInternalServerError, err.Error())
 		log.Fatalln("could not add new question")
