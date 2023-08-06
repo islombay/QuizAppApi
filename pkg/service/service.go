@@ -8,6 +8,7 @@ import (
 type Authorization interface {
 	GenerateAdminToken(user, password string) (string, error)
 	AdminTokenValid(adminToken string) error
+	AdminInit(user, password string) error
 }
 
 type Question interface {

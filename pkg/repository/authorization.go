@@ -27,8 +27,7 @@ func (r *AuthPostgres) AddAdmin(user, password string) error {
 		User:     user,
 		Password: password,
 	}
-	res := r.db.Create(&newAdmin)
-	if res.Error != nil {
+	if res := r.db.Create(&newAdmin); res.Error != nil {
 		return res.Error
 	}
 	return nil

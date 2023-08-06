@@ -58,6 +58,20 @@ func (s *AuthService) AdminTokenValid(adminToken string) error {
 	return nil
 }
 
+func (s *AuthService) AdminInit(user, password string) error {
+	password = generatePasswordHash(password)
+	_, err := s.repo.GetAdmin(user, password)
+	if err != nil {
+		if err.Error() == RecordNotFound {
+			if err := s.repo.AddAdmin(user, password); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
 func generatePasswordHash(password string) string {
 	hash := sha1.New()
 	hash.Write([]byte(password))
