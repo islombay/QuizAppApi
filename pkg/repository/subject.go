@@ -16,7 +16,7 @@ func NewSubjectPostgres(db *gorm.DB) *SubjectPostgres {
 
 func (r *SubjectPostgres) GetAll() ([]QuizAppApi.SubjectModel, error) {
 	var subjects []QuizAppApi.SubjectModel
-	result := r.db.Find(&subjects).Where("")
+	result := r.db.Find(&subjects)
 
 	if result.Error != nil {
 		return nil, result.Error

@@ -69,7 +69,7 @@ func (s *SubjectService) ConvertCreate(sb QuizAppApi.CreateNewSubjectBody) (Quiz
 	newSubject := QuizAppApi.SubjectModel{
 		Name:        sb.Name,
 		ColorString: sb.ColorString,
-		IconPath:    "",
+		IconPath:    sb.IconPath,
 	}
 
 	var questions []QuizAppApi.QuestionModel

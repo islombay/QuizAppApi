@@ -63,10 +63,11 @@ type createNewSubjectQuestionsBody struct {
 	CorrectAnswer string `json:"ca" binding:"required"`
 	Level         int    `json:"level" binding:"required"`
 }
+
 type CreateNewSubjectBody struct {
 	Name        string                          `json:"name" binding:"required"`
 	ColorString string                          `json:"color" binding:"required"`
-	IconPath    string                          `json:"iconPath"`
+	IconPath    string                          `json:"iconPath" binding:"required"`
 	Questions   []createNewSubjectQuestionsBody `json:"questions" binding:"required"`
 }
 
