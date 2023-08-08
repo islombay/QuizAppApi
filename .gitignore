@@ -1,5 +1,4 @@
 .env
-.idea
-/pkg/handler/routes.txt
+.idea/
 .database
 .dockerignore
