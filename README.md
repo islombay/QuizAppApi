@@ -25,7 +25,7 @@ Login as an admin
 - **Response on success**:
 ```json
 {
-  "message": "JWT Token"
+  "message": "JWT token"
 }
 ```
 
@@ -102,7 +102,7 @@ Add subject to the database
 - **URL**: `/api/admin/subject`
 - **Method**: `POST`
 - **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
+  - **Authorization**: `Bearer {JWT token}`
 - **Request body**:
 
 ```json
@@ -137,7 +137,7 @@ Update the existing subject to the new one
 - **URL**: `/api/admin/subject`
 - **Method**: `PUT`
 - **Headers**:
-- **Authorization**: `Bearer {JWT Token}`
+- **Authorization**: `Bearer {JWT token}`
 - **Request body**:
 
 ```json
@@ -163,7 +163,7 @@ Delete the subject by ID
 - **URL**: `/api/admin/subject`
 - **Method**: `DELETE`
 - **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
+  - **Authorization**: `Bearer {JWT token}`
 - **Request body**:
 
 ```json
@@ -187,7 +187,7 @@ Add new question to the subject
 - **URL**: `/api/admin/question`
 - **Method**: `POST`
 - **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
+  - **Authorization**: `Bearer {JWT token}`
 - **Request body**:
 
 ```json
@@ -216,7 +216,7 @@ Update existing question by ID
 - **URL**: `/api/admin/question`
 - **Method**: `PUT`
 - **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
+  - **Authorization**: `Bearer {JWT token}`
 - **Request body**:
 
 ```json
@@ -247,7 +247,7 @@ Delete existing question by ID
 - **URL**: `/api/admin/question`
 - **Method**: `DELETE`
 - **Headers**:
-  - **Authorization**: `Bearer {JWT Token}`
+  - **Authorization**: `Bearer {JWT token}`
 - **Request body**:
 
 ```json
