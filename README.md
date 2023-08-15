@@ -5,6 +5,22 @@ quiz application made during the lectures in the [PDP University](https://univer
 
 #### **BY** [Islmobay](https://t.me/+pXNYOnXyHTEwZTUy)
 
+## Installation
+
+First of all, clone the project:
+`git clone https://github.com/islombay/QuizAppApi`
+
+Next create `.env` file like this:
+```
+DB_PASSWORD=your_password
+DB_USER=your_user
+ADMIN_KEY=password_to_login_as_admin
+```
+
+After that, if you are running it with Docker, you can use the command `docker-compose up --build quizAppApi`.
+Or to use locally, change the `config.yml` file in `configs/config.yml`, with local postgres server settings in
+your machine. Now run `go run cmd/main.go` command to run it.
+
 ## API Documentation
 
 ## Authorization
