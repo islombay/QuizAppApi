@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  quiz-app-api:
+  webapp:
     build: ./
-    command: ./quiz-app-api
+    command: ./webapp
     ports:
       - 9856:9874
     depends_on:

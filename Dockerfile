@@ -6,6 +6,6 @@ ENV GOPATH=/
 COPY ./ ./
 
 RUN go mod download
-RUN go build -o quiz-app-api ./cmd/main.go
+RUN go build -o webapp ./cmd/main.go
 
-CMD ["./quiz-app-api"]
+CMD ["./webapp"]
